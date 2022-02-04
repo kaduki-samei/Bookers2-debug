@@ -9,5 +9,6 @@ class SearchesController < ApplicationController
       @books = Book.looks(params[:search], params[:word])
     end
   end
-  
+  #検索フォームから送られてきた情報を受け取る
+
 end
