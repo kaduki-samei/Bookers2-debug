@@ -6,6 +6,7 @@ class BookCommentsController < ApplicationController
     comment.book_id = book.id
     comment.user_id = current_user.id
     comment.save
+    # binding.pry
     redirect_back(fallback_location: root_path)
   end
 
