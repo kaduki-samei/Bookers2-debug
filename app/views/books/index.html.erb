@@ -16,7 +16,16 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
-      <%= render 'index', books: @books%>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <%= link_to "All", books_path, class: "btn btn-light" %>
+          <%= link_to "参考書", books_path, class: "btn btn-light" %>
+          <%= link_to "小説", books_path, class: "btn btn-light" %>
+          <%= link_to "漫画", books_path, class: "btn btn-light" %>
+        </div>
+      <%= render 'index', books: @books %>
+      <%= render 'index', books: @reference %>
+      <%= render 'index', books: @nobel %>
+      <%= render 'index', books: @comic %>
     </div>
   </div>
 </div>

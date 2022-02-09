@@ -7,8 +7,8 @@ class Book < ApplicationRecord
   is_impressionable counter_cache: true
 
   validates :title,presence:true
-  validates :category,presence:true
   validates :body,presence:true,length:{maximum:200}
+  validates :category, inclusion: { in: ["参考書", "小説", "漫画"] }
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)

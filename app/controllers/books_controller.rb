@@ -11,6 +11,9 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.includes(:favorites).sort {|a,b| b.favorites.size <=> a.favorites.size}
+    @reference = Book.where(category: "参考書")
+    @nobel = Book.where(category: "小説")
+    @comic = Book.where(category: "漫画")
   end
 
   def new
@@ -54,6 +57,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :category)
   end
 end

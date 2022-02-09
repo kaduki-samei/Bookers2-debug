@@ -34,6 +34,7 @@
       </table>
       <div>
         <%= form_with model: [@books, @book_comment], data: {remote: true} do |f| %>
+          <%= f.label "コメント"%>
           <%= f.text_area :body %>
           <%= f.submit "送信" %>
         <% end %>
