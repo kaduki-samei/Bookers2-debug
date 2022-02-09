@@ -22,6 +22,7 @@
             <%= render "favorites/favo", book: @books %>
           </td>
           <td>コメント数: <%= @books.book_comments.count %></td>
+          <td>観覧数: <%= @books.impressions_count %></td>
           <% if @books.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@books), class: "btn btn-sm btn-success edit_book_#{@books.id}" %></td>
             <td><%= link_to 'Destroy', @books, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}"%></td>
