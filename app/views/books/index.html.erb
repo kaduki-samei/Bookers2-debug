@@ -16,16 +16,21 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <%= link_to "All", books_path, class: "btn btn-light" %>
-          <%= link_to "参考書", books_path, class: "btn btn-light" %>
-          <%= link_to "小説", books_path, class: "btn btn-light" %>
-          <%= link_to "漫画", books_path, class: "btn btn-light" %>
-        </div>
-      <%= render 'index', books: @books %>
-      <%= render 'index', books: @reference %>
-      <%= render 'index', books: @nobel %>
-      <%= render 'index', books: @comic %>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <%= link_to "All", books_path, class: "btn btn-light" %>
+        <%= link_to "参考書", books_path(category: "refarence"), class: "btn btn-light" %>
+        <%= link_to "小説", books_path(category: "nobel"), class: "btn btn-light" %>
+        <%= link_to "漫画", books_path(category: "comic"), class: "btn btn-light" %>
+      </div>
+      <% if @category == "refarence" %>
+        <%= render 'index', books: @reference %>
+      <% elsif @category == "nobel" %>
+        <%= render 'index', books: @nobel %>
+      <% elsif @category == "comic" %>
+        <%= render 'index', books: @comic %>
+      <% else %>
+        <%= render 'index', books: @books %>
+      <% end %>
     </div>
   </div>
 </div>

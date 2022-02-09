@@ -10,6 +10,7 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
+    @category = params[:category]
     @books = Book.includes(:favorites).sort {|a,b| b.favorites.size <=> a.favorites.size}
     @reference = Book.where(category: "参考書")
     @nobel = Book.where(category: "小説")
