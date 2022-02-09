@@ -7,6 +7,10 @@
     <%= f.label :opinion %>
     <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
+  <div class="form-gr">
+    <%= f.label :category %>
+    <%= f.select :category, [["参考書", "参考書"], ["小説", "小説"],["漫画", "漫画"]], include_blank: "選択して下さい" %>
+  </div>
   <div class="form-group">
     <%= f.submit class: 'btn btn-success' %>
   </div>

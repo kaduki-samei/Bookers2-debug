@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2022_02_09_054338) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
+    t.string "category"
     t.text "body"
     t.integer "user_id"
     t.integer "impressions_count", default: 0
